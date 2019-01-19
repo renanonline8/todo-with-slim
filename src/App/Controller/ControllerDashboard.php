@@ -4,11 +4,18 @@ namespace App\Controller;
 use Utils\Controller\Controller;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
+use App\CSRF\ArrayCSRF;
 
 final class ControllerDashboard extends Controller
 {
     public function dash(Request $request, Response $response, Array $args)
     {
+        $csrf = new ArrayCSRF(
+            $this->csrf->getTokenNameKey(),
+            $this->csrf->getTokenValueKey(),
+            $request
+        );
+        $this->twigArgs->adcDados('csrf', $csrf->getCSRF());
         return $this->view->render($response, 'dashboard.twig', $this->twigArgs->retArgs());
     }
 }

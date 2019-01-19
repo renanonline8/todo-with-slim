@@ -15,3 +15,7 @@ $container['ControllerUsuario'] = function($c) {
 $container['ControllerTest'] = function($c) {
     return new \App\Controller\ControllerTest($c);
 };
+
+$container['ControllerTask'] = function($c) {
+    return new \App\Controller\ControllerTask($c);
+};

@@ -1,0 +1,8 @@
+<form class="form-inline mt-3" method="Post" action="{{ path_for('task-new') }}">
+  {{ include('includes/csrf.twig') }}
+  <div class="p-2 form-group w-75">
+    <label for="" class="bg-info sr-only">Nova Tarefa:</label>
+    <input type="text" class="form-control w-100" id="new_task" name="new_task" placeholder="Digitar nova tarefa...">
+  </div>
+  <button type="submit" class="p-2 btn btn-primary mr-1">Nova Tarefa</button>
+</form>

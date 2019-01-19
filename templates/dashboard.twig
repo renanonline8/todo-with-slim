@@ -1,5 +1,23 @@
 {% extends "baseNav.twig" %} {% block title %} Dashboard {% endblock title %} {% block content %}
 
-<h1>Id: {{sessao.id}}</h1>
+{{ include('includes/nova-tarefa.twig') }}
+
+<ul class="list-group mt-3">
+  <li class="list-group-item d-flex justify-content-between">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    <div class="btn-group">
+      <a href="#" class="btn btn-danger">Apagar</a>
+      <a href="#" class="btn btn-success">Confirma</a>
+      
+    </div>
+  </li>
+  <li class="list-group-item d-flex justify-content-between">
+    Donec facilisis nisi at nisi auctor, ac varius leo egestas
+    <div class="btn-group">
+      <a href="#" class="btn btn-danger">Apagar</a>
+      <a href="#" class="btn btn-success">Confirma</a>
+    </div>
+  </li>
+</ul>
 
 {% endblock content %}

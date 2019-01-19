@@ -36,3 +36,7 @@ $app->group('', function () {
     $this->post('/usuario/alterar_foto/{id}', 'ControllerUsuario:alterarFoto')->setName('usuario-alterar-foto');
 })->add(new SessaoNormalMid($container));
 
+$app->group('/tasks', function(){
+    $this->post('/new', 'ControllerTask:new')->setName('task-new');
+})->add(new SessaoNormalMid($container));
+
