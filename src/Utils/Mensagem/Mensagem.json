@@ -55,5 +55,21 @@
     "14" : {
         "mensagem" : "Campo de senha não foi digitado",
         "tipo" : "danger"
+    },
+    "15" : {
+        "mensagem" : "O id do usuário está inválido, logue-se novamente",
+        "tipo" : "danger"
+    },
+    "16" : {
+        "mensagem" : "A tarefa não está preenchida",
+        "tipo" : "danger"
+    },
+    "17" : {
+        "mensagem" : "A tarefa tem mais de 255 caracteres, não é permitido",
+        "tipo" : "danger"
+    },
+    "18" : {
+        "mensagem" : "Tarefa cadastrada com sucesso",
+        "tipo" : "success"
     }
 }
