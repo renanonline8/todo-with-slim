@@ -79,4 +79,79 @@ final class ControllerTask extends Controller
             '?mensagens=18'
         );
     }
+
+    /**
+     * Responsável por marcar tarefa como concluída
+     *
+     * @param Request $request
+     * @param Response $response
+     * @param Array $args
+     * @return void
+     */
+    public function checked(Request $request, Response $response, Array $args) {
+        //Localizar a tarefa...
+        $task = Task::find_by_id_ext($args['id']);
+        $valid = new ValidacaoRedireciona(
+            $this->router->pathFor('dashboard')
+        );
+        $valid->adicionaRegra(v::notEmpty()->validate($task), 19);
+        if(!$valid->valida()) {
+            return $response->withRedirect($valid->retornaURLErros());
+        }
+
+        //Verificar se tarefa pertence ao usuário desta tarefa...
+        $sessao = $this->twigArgs->retArgs()['sessao'];
+        $id = $sessao['id'];
+        $usuario = Usuario::find_by_id_externo($id);
+        $valid->adicionaRegra(
+            v::equals($task->id_user)->validate($usuario->id),
+            20
+        );
+        if(!$valid->valida()) {
+            return $response->withRedirect($valid->retornaURLErros());
+        }
+
+        //Marcar como concluída...
+        $task->checked = true;
+        $task->save();
+
+        //Retornar para dashboard...
+        return $response->withRedirect(
+            $this->router->pathFor('dashboard') . 
+            '?mensagens=21'
+        );
+    }
+
+    public function delete(Request $request, Response $response, Array $args) {
+        //Localizar a tarefa
+        $task = Task::find_by_id_ext($args['id']);
+        $valid = new ValidacaoRedireciona(
+            $this->router->pathFor('dashboard')
+        );
+        $valid->adicionaRegra(v::notEmpty()->validate($task), 19);
+        if(!$valid->valida()) {
+            return $response->withRedirect($valid->retornaURLErros());
+        }
+
+        //Verificar se a tarefa pertence ao usuário desta tarefa
+        $sessao = $this->twigArgs->retArgs()['sessao'];
+        $id = $sessao['id'];
+        $usuario = Usuario::find_by_id_externo($id);
+        $valid->adicionaRegra(
+            v::equals($task->id_user)->validate($usuario->id),
+            20
+        );
+        if(!$valid->valida()) {
+            return $response->withRedirect($valid->retornaURLErros());
+        }
+
+        //Apagar tarefa
+        $task->delete();
+
+        //Retornar para dashboard
+        return $response->withRedirect(
+            $this->router->pathFor('dashboard') . 
+            '?mensagens=22'
+        );
+    }
 }

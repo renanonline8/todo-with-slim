@@ -71,5 +71,21 @@
     "18" : {
         "mensagem" : "Tarefa cadastrada com sucesso",
         "tipo" : "success"
+    },
+    "19" : {
+        "mensagem" : "A tarefa não existe",
+        "tipo" : "danger"
+    },
+    "20" : {
+        "mensagem" : "Esta tarefa não pertence a esse usuário, então não pode ser alterada",
+        "tipo" : "danger"
+    },
+    "21" : {
+        "mensagem" : "Tarefa marcada como concluída",
+        "tipo" : "success"
+    },
+    "22" : {
+        "mensagem" : "Tarefa apagada com sucesso",
+        "tipo" : "success"
     }
 }

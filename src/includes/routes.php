@@ -38,5 +38,7 @@ $app->group('', function () {
 
 $app->group('/tasks', function(){
     $this->post('/new', 'ControllerTask:new')->setName('task-new');
+    $this->get('/checked/{id}', 'ControllerTask:checked')->setName('task-checked');
+    $this->get('/delete/{id}', 'ControllerTask:delete')->setName('task-delete');
 })->add(new SessaoNormalMid($container));
 
