@@ -19,3 +19,7 @@ $container['ControllerTest'] = function($c) {
 $container['ControllerTask'] = function($c) {
     return new \App\Controller\ControllerTask($c);
 };
+
+$container['ControllerHome'] = function($c) {
+    return new \App\Controller\ControllerHome($c);
+};

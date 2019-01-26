@@ -8,6 +8,8 @@ use \Slim\Csrf\Guard;
 $app->add(new MensagemMid($container));
 $app->add(new Guard);
 
+$app->get('/', 'ControllerHome:index')->setName('home');
+
 $app->get('/tests/email', 'ControllerTest:sendEmail')->setName('test-email');
 
 $app->group('', function() {

@@ -1,0 +1,39 @@
+{% extends "base.twig" %} 
+{% block title %} Minhas Simples Tarefas {% endblock title %}
+{% block content %}
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand" id="logo">
+                Minhas Simples Tarefas
+            </div>
+            <div id="botoes">
+                <a href="{{ path_for('login') }}" class="btn btn-primary">
+                    Começar
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+<section>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Simplifique!</h1>
+            <p class="lead">O Minhas Simples Tarefas é um projeto que consiste em uma simples lista
+        de tarefas, para você poder se organizar de forma fácil e intuitiva.<p>
+            <a href="{{ path_for('login') }}" class="btn btn-primary">
+                Começar
+            </a>
+        </div>
+    </div>
+</section>
+<footer class="text-muted">
+    <div class="container text-center">
+        <p>
+            Desenvolvido por Renan Santos Gomes em 2019 - 
+            Contato: <a href="mailto:renanonline8@gmail.com">renanonline8@gmail.com</a>
+        </p>
+    </div>
+</footer>
+
+{% endblock content %}
