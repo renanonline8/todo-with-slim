@@ -8,4 +8,5 @@ $configIni = parse_ini_file(__DIR__ . "/../../app.ini", true);
             'development' => $configIni['bd_active_record']['development']
         )
     );
+    ActiveRecord\Connection::$datetime_format = 'Y-m-d H:i:s';
 });
