@@ -39,7 +39,13 @@ $container['upload'] = function($c) use ($container) {
 
 $container['swiftTransport'] = function($c) use ($container) {
     $ini = $container->ini->retornaVariaveis();
-    $transport = (new \Swift_SmtpTransport($ini['swift_mailer']['smtp_url'], $ini['swift_mailer']['smtp_port']))
+    $transport = (
+            new \Swift_SmtpTransport(
+                $ini['swift_mailer']['smtp_url'], 
+                $ini['swift_mailer']['smtp_port'], 
+                $ini['swift_mailer']['security']
+            )
+        )
         ->setUsername($ini['swift_mailer']['username'])
         ->setPassword($ini['swift_mailer']['password'])
     ;
